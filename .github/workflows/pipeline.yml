@@ -27,9 +27,14 @@ jobs:
         env:
           TEST_MONTODB_URI: ${{ secrets.TEST_MONTODB_URI }}
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          PORT: ${{ secrets.PORT }}
+          SECRET: ${{ secrets.SECRET }}
         run: npm run test
       - name: jest tests front-end
         env:
-          MONGODB_URI: ${{ secrets.TEST_MONTODB_URI }}
+          TEST_MONTODB_URI: ${{ secrets.TEST_MONTODB_URI }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          PORT: ${{ secrets.PORT }}
+          SECRET: ${{ secrets.SECRET }}
         run: npm run test
         working-directory: bloglist-frontend
