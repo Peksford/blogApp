@@ -25,7 +25,11 @@ jobs:
         run: npm install
         working-directory: bloglist-frontend
       - name: jest tests back-end
+        env:
+          MONGODB_URI: ${{ secrets.TEST_MONTODB_URI }}
         run: npm run test
       - name: jest tests front-end
+        env:
+          MONGODB_URI: ${{ secrets.TEST_MONTODB_URI }}
         run: npm run test
         working-directory: bloglist-frontend
