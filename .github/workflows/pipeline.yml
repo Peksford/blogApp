@@ -21,3 +21,6 @@ jobs:
         run: npm install
       - name: Check style
         run: npm run lint
+      - name: Install dependencies in front-end
+        run: npm install
+        working-directory: bloglist-frontend
