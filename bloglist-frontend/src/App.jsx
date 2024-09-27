@@ -62,8 +62,9 @@ const App = () => {
       setUser(user);
       setUsername('');
       setPassword('');
-    } catch (exception) {
+    } catch (e) {
       setErrorMessage('wrong username or password');
+      console.error('Error in login', e.message);
       setTimeout(() => {
         setErrorMessage(null);
       }, 5000);

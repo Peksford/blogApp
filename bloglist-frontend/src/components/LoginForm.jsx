@@ -1,13 +1,21 @@
-const LoginForm = ({ ErrorMessage, errorMessage, handleLogin, username, setUsername, password, setPassword }) => {
+const LoginForm = ({
+  ErrorMessage,
+  errorMessage,
+  handleLogin,
+  username,
+  setUsername,
+  password,
+  setPassword,
+}) => {
   return (
     <div>
       <h2>Log in to application</h2>
-      <ErrorMessage message={errorMessage}/>
+      <ErrorMessage message={errorMessage} />
       <form onSubmit={handleLogin}>
         <div>
-        username
+          username
           <input
-            id='username'
+            id="username"
             type="text"
             value={username}
             name="Username"
@@ -15,19 +23,21 @@ const LoginForm = ({ ErrorMessage, errorMessage, handleLogin, username, setUsern
           />
         </div>
         <div>
-        password
+          password
           <input
-            id='password'
+            id="password"
             type="password"
             value={password}
             name="Password"
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <button id="login-button" type="submit">login</button>
+        <button id="login-button" type="submit">
+          login
+        </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;
