@@ -22,6 +22,7 @@ async function connectToMongoDB() {
     console.log('connection succesful');
   } catch (error) {
     logger.error('error connection to MongoDB:', error.message);
+    console.log('error in connecting', error.message);
   }
 }
 
