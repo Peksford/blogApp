@@ -24,3 +24,8 @@ jobs:
       - name: Install dependencies in front-end
         run: npm install
         working-directory: bloglist-frontend
+      - name: jest tests back-end
+        run: npm run test
+      - name: jest tests front-end
+        run: npm run test
+        working-directory: bloglist-frontend
