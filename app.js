@@ -12,7 +12,7 @@ const loginRouter = require('./controllers/login');
 
 mongoose.set('strictQuery', false);
 
-//logger.info('connecting to', config.MONGODB_URI)
+logger.info('connecting to', config.MONGODB_URI);
 
 async function connectToMongoDB() {
   try {

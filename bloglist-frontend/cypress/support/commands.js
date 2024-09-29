@@ -25,30 +25,30 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('databaseUserReset', ({ username, password }) => {
-  cy.request('POST', 'http://localhost:3003/api/testing/reset')
+  cy.request('POST', `${Cypress.env('BACKEND')}/testing/reset`);
   const user = {
     name: 'Etunimi Sukunimi',
     username: username,
-    password: password
-  }
-  cy.request('POST', 'http://localhost:3003/api/users/', user)
-  cy.visit('http://localhost:5173')
-})
+    password: password,
+  };
+  cy.request('POST', `${Cypress.env('BACKEND')}/users`, user);
+  cy.visit('');
+});
 
 Cypress.Commands.add('login', ({ username, password }) => {
-  cy.get('#username').type(username)
-  cy.get('#password').type(password)
-  cy.get('#login-button').click()
-})
+  cy.get('#username').type(username);
+  cy.get('#password').type(password);
+  cy.get('#login-button').click();
+});
 
 Cypress.Commands.add('newBlog', ({ title, author, url }) => {
-  cy.contains('create new blog').click()
-  cy.get('#title').type(title)
-  cy.get('#author').type(author)
-  cy.get('#url').type(url)
-  cy.get('#create-button').click()
-  cy.contains(`a new blog ${title} by ${author} added`)
+  cy.contains('create new blog').click();
+  cy.get('#title').type(title);
+  cy.get('#author').type(author);
+  cy.get('#url').type(url);
+  cy.get('#create-button').click();
+  cy.contains(`a new blog ${title} by ${author} added`);
 
-  cy.wait(1000)
-  cy.contains(`${title} ${author}`)
-})
+  cy.wait(1000);
+  cy.contains(`${title} ${author}`);
+});
