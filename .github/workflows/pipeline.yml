@@ -38,3 +38,15 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
         run: npm run test
         working-directory: bloglist-frontend
+        
+      - name: e2e tests
+        env:
+          TEST_MONTODB_URI: ${{ secrets.TEST_MONTODB_URI }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          PORT: ${{ secrets.PORT }}
+          SECRET: ${{ secrets.SECRET }}
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm --prefix ./bloglist-frontend run test:e2e
+          start: npm run start:test
+          wait-on: http://localhost:3000
