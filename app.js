@@ -16,10 +16,13 @@ logger.info('connecting to', config.MONGODB_URI);
 
 async function connectToMongoDB() {
   try {
+    console.log('Connecting to mongo');
     await mongoose.connect(config.MONGODB_URI);
     logger.info('connected to MongoDB');
+    console.log('connection succesful');
   } catch (error) {
     logger.error('error connection to MongoDB:', error.message);
+    console.log('error in connecting', error.message);
   }
 }
 
