@@ -46,7 +46,7 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
         uses: cypress-io/github-action@v5
         with:
-          command: npm run test:e2e
+          command: npm --prefix ./bloglist-frontend run test:e2e
           start: npm run start:test
           wait-on: http://localhost:3000
         
