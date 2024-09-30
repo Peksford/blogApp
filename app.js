@@ -47,4 +47,8 @@ if (process.env.NODE_ENV === 'test') {
 
 app.use(middleware.errorHandler);
 
+app.get('/health', (req, res) => {
+  res.send('ok');
+});
+
 module.exports = app;

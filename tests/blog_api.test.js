@@ -5,6 +5,8 @@ const app = require('../app');
 
 const api = supertest(app);
 const Blog = require('../models/blog');
+const bcrypt = require('bcrypt');
+const User = require('../models/user');
 
 beforeEach(async () => {
   await Blog.deleteMany({});
@@ -14,6 +16,17 @@ beforeEach(async () => {
   await blogObject.save();
   blogObject = new Blog(helper.initialBlogs[2]);
   await blogObject.save();
+
+  await User.deleteMany({});
+
+  const passwordHash = await bcrypt.hash('sekret', 10);
+  const user = new User({
+    username: 'root',
+    passwordHash,
+    id: '66f5e111fbfd56fadd2cff3c',
+  });
+
+  await user.save();
 });
 
 describe('Blogs JSON', () => {
