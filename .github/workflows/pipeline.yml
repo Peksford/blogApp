@@ -90,5 +90,5 @@ jobs:
         if: success()
         with:
           title: A new version of Pokedex deployed
-          message: "to https://full-stack-open-pokedex-weathered-pond-1509.fly.dev/"
+          message: "to https://osa4-backend.fly.dev/"
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
