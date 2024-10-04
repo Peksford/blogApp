@@ -43,7 +43,7 @@ describe('when there is initially one user at db', () => {
 
   test('creation fails with proper statuscode and message if username already taken', async () => {
     const usersAtStart = await helper.usersInDb();
-    console.log(usersAtStart);
+    console.log('users at start', usersAtStart);
 
     const existingUser = usersAtStart[0];
 
@@ -67,5 +67,6 @@ describe('when there is initially one user at db', () => {
 });
 
 afterAll(async () => {
+  await User.deleteMany({});
   await mongoose.connection.close();
 });
