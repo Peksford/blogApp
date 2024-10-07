@@ -89,6 +89,6 @@ jobs:
         uses: stegzilla/discord-notify@v4
         if: success()
         with:
-          title: A new version of Pokedex deployed
+          title: A new version of BlogApp deployed
           message: "to https://osa4-backend.fly.dev/"
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
